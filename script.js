@@ -7,7 +7,10 @@ function addTask() {
         const listItem = document.createElement("li");
         listItem.innerHTML = `
             ${taskText}
-            <button class="delete" onclick="deleteTask(this)">Delete</button>
+            <div>
+                <button class="delete" onclick="deleteTask(this)">Delete</button>
+                <button class="unchecked" onclick="checkTask(this)">Check</button>
+            </div>
         `;
         taskList.appendChild(listItem);
         taskInput.value = "";
@@ -15,12 +18,22 @@ function addTask() {
 }
 
 function deleteTask(button) {
-    const listItem = button.parentElement;
+    const listItem = button.parentElement.parentElement;
     taskList.removeChild(listItem);
 }
 
 function clearTasks() {
     while (taskList.firstChild) {
         taskList.removeChild(taskList.firstChild);
+    }
+}
+
+function checkTask(button) {
+    if(button.classList.contains("unchecked")) {
+        button.classList.add("checked");
+        button.classList.remove("unchecked");
+    } else {
+        button.classList.add("unchecked");
+        button.classList.remove("checked");
     }
 }

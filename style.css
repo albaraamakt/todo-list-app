@@ -54,3 +54,15 @@ li:last-child {
 button.delete {
     background-color: #dc3545;
 }
+
+button.unchecked {
+    background-color: white;
+    border-color: blue;
+    color: blue;
+}
+
+button.checked {
+    background-color: blue;
+    color: white;
+    border-color: blue;
+}
